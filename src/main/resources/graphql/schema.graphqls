@@ -1,0 +1,34 @@
+type Query {
+    findTransactions(name: String) : [Transaction]
+}
+
+type Mutation {
+    createTransaction(input: TransactionDto!) : Transaction
+    updateTransaction(input: TransactionInput!) : Transaction
+    deleteTransaction(id: String!) : String
+}
+
+input TransactionDto{
+    name: String!
+    country: String!
+}
+
+input TransactionInput{
+    id: String!
+    name: String
+    country: String
+}
+
+type Transaction{
+    id: String
+    name: String
+    country: String
+    createdAt: String
+}
+
+input TransactionFilter{
+    id: String
+    name: String
+    country: String
+    createdAt: String
+}
