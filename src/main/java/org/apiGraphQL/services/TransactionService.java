@@ -26,12 +26,12 @@ public class TransactionService {
   }
 
   public Transaction updateTransaction(TransactionInput dto){
-    var transaction = repository.findTransactionById(dto.getId());
+    Transaction transaction = repository.findTransactionById(dto.getId());
     if(transaction == null){
       throw new NotFoundException("Transaction not found with id: " + dto.getId());
     }
 
-    var newTransaction = mapper.updateEntity(dto, transaction);
+    Transaction newTransaction = mapper.updateEntity(dto, transaction);
 
     repository.save(newTransaction);
 

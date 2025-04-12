@@ -8,6 +8,5 @@ import java.util.UUID;
 
 @Repository
 public interface TransactionRepository extends JpaRepository<Transaction, String> {
-  String deleteTransactionById(String id);
   Transaction findTransactionById(String id);
 }
